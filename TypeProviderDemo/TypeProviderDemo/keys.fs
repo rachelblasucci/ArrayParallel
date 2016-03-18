@@ -1,0 +1,7 @@
+﻿namespace TypeProviderDemo
+
+module keys = 
+
+    let ClientId = "HADCKB1NTPDSNHZ5R2FTXT03L2YTVRHDBYBT3HP2LKEVZ01G"
+    let ClientSecret = "PRHSMIUY0Y4MIHXGYG1WWTSFKMWUEFPBMEHW4TWXKLTELNJJ"
+
