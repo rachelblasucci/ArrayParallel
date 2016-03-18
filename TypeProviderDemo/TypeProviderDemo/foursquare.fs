@@ -42,11 +42,12 @@ module foursquare =
     // Get top venue by capital city
     let recommendations = 
         wb.Countries 
-        |> Seq.take 10
-        |> Seq.filter (fun country -> country.CapitalCity <> "") 
-        |> Seq.map (fun country -> 
+        |> Seq.toArray
+        |> Array.take 10
+        |> Array.filter (fun country -> country.CapitalCity <> "") 
+        |> Array.Parallel.map (fun country -> 
                     let city = country.CapitalCity
                     getVenuesFor city
                     |> Option.map (fun v -> sprintf "%s, %s: %s" city country.Name v))
-        |> Seq.filter (fun c -> c.IsSome)
-        |> Seq.map (fun c -> c.Value)
+        |> Array.filter (fun c -> c.IsSome)
+        |> Array.map (fun c -> c.Value)
